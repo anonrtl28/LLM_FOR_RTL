@@ -399,7 +399,7 @@ def main():
             ])
             
             # Print summary for this design
-            print(f"\n  📈 {design} summary:")
+            print(f"\n  {design} summary:")
             print(f"     Success: {'Yes' if success else 'No'}")
             print(f"     Attempts to success: {first_pass if first_pass else 'N/A'}")
             print(f"     First failure: {first_failure_stage if first_failure_stage else 'None'}")
