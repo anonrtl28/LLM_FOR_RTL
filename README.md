@@ -29,6 +29,7 @@ All paths are automatically derived:
 | RESULT_DIR | results/half_adder/ |
 
 ## Directory Structure
+```
 llm_rtl_project/
 ├── main.py # Core RTL generation script
 ├── run_all.py # Batch testing orchestrator
@@ -51,6 +52,7 @@ llm_rtl_project/
 │ └── result.json
 ├── results.csv # Aggregated results
 └── metrics_report.txt # Formatted metrics output
+```
 
 
 
