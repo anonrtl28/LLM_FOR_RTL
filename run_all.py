@@ -13,7 +13,7 @@ DESIGNS = [
     "half_adder",
     "priority_encoder",
     "ripple_carry_adder"
-]
+] # edit the list based on the designs you want to test; ensure that prompts and the reference designs are available under the respective directory
 
 LLM_PROVIDER = "ollama"
 K = 3  # Refinement budget
