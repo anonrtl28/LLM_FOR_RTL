@@ -180,3 +180,49 @@ Step 1: Run the test suite
 Step 2: Manually generate metrics report
 ```python3 metrics.py```
 
+## Metrics Calculated
+
+### Stage-wise Pass Rates 
+| Metric | Description |
+|--------|-------------|
+| PPS | Port Signature pass rate |
+| CR | Compile pass rate |
+| ER | Elaboration pass rate |
+| MC | Module Completeness pass rate |
+| FE | Functional Equivalence pass rate |
+
+### Conditional Yields 
+
+| Metric | Description |
+|--------|-------------|
+| CR \| PPS | Compile rate given Port Signature pass |
+| ER \| CR | Elaboration rate given Compile pass |
+| MC \| ER | Module Complete rate given Elaboration pass |
+| FE \| MC | Functional Equivalence rate given Module Complete |
+
+### Bounded Refinement
+
+| Metric | Description |
+|--------|-------------|
+| E2E@K | End-to-end success within K attempts |
+
+### Failure Breakdown
+
+| Metric | Description |
+|--------|-------------|
+| First-failure stage | Where design first fails (P, C, E, M, F, S, or None) |
+| Root cause | compiler, not-elaborated, partial_module, functional_mismatch, other |
+
+### Synthesis-Eligible Yield
+
+| Metric | Description |
+|--------|-------------|
+| SEY@K | Synthesis-eligible yield within K attempts |
+
+### Auxiliary Metrics 
+
+| Metric | Description |
+|--------|-------------|
+| E2E@1 | One-shot end-to-end rate |
+| ETS | Edits to Success (avg refinements before success) |
+| TTFP | Time to First Pass (avg seconds to success) |
