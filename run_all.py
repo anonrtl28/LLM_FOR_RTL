@@ -39,7 +39,7 @@ def review_and_edit_prompt(design):
         print(f"  [!] Prompt file not found: {prompt_file}")
         return False
 
-    print(f"\n  📝 Current prompt for {design}:")
+    print(f"\n   Current prompt for {design}:")
     print("  " + "-"*40)
     with open(prompt_file, "r") as f:
         lines = f.read().split('\n')
@@ -110,14 +110,14 @@ def backup_prompt(design):
     dst = f"prompts_backup/{design}_original.txt"
     if os.path.exists(src) and not os.path.exists(dst):
         shutil.copy(src, dst)
-        print(f"  📁 Backed up: {src}")
+        print(f"   Backed up: {src}")
 
 def restore_prompt(design):
     src = f"prompts_backup/{design}_original.txt"
     dst = f"prompts/{design}.txt"
     if os.path.exists(src):
         shutil.copy(src, dst)
-        print(f"  📁 Restored original prompt for {design}")
+        print(f"   Restored original prompt for {design}")
 
 # =====================================
 # CLASSIFY ROOT CAUSE
@@ -241,13 +241,13 @@ def main():
 
         for design in DESIGNS:
             print(f"\n{'='*50}")
-            print(f"📁 Testing: {design}")
+            print(f" Testing: {design}")
             print(f"{'='*50}")
 
             # Interactive prompt review
             if INTERACTIVE_MODE:
                 if not review_and_edit_prompt(design):
-                    print(f"  ⏭️ Skipping {design}")
+                    print(f"   Skipping {design}")
                     continue
 
             # Backup original prompt
@@ -275,7 +275,7 @@ def main():
             for attempt in range(1, K + 1):
                 print(f"\n--- Attempt {attempt}/{K} ---")
                 if attempt > 1:
-                    print(f"  🔄 Using refined prompt")
+                    print(f"   Using refined prompt")
 
                 # Update main.py
                 update_main_py(design, LLM_PROVIDER)
@@ -320,9 +320,9 @@ def main():
                     design_data['attempts'].append(attempt_data)
                     final_res = res
                     
-                    print(f"\n  📊 Results: P={res.get('P')}, C={res.get('C')}, E={res.get('E')}, M={res.get('M')}, F={res.get('F')}, S={res.get('S')}")
+                    print(f"\n   Results: P={res.get('P')}, C={res.get('C')}, E={res.get('E')}, M={res.get('M')}, F={res.get('F')}, S={res.get('S')}")
                 else:
-                    print("  ⚠️ Could not parse JSON")
+                    print("   Could not parse JSON")
                     continue
 
                 # Track first failure (only first failing attempt)
@@ -336,8 +336,8 @@ def main():
                     if error_stage:
                         first_failure_stage = error_stage
                         root_cause = classify_root_cause(error_stage, error_msg)
-                        print(f"  📌 First failure at: {first_failure_stage}")
-                        print(f"  📌 Root cause: {root_cause}")
+                        print(f"   First failure at: {first_failure_stage}")
+                        print(f"   Root cause: {root_cause}")
 
                 # Check SEY@K (synthesis-eligible: C and E pass)
                 if res.get("C") == "PASS" and res.get("E") == "PASS":
@@ -351,7 +351,7 @@ def main():
                     res.get("M") == "PASS",
                     res.get("F") == "PASS"
                 ]):
-                    print(f"\n  ✅ SUCCESS on attempt {attempt}!")
+                    print(f"\n  SUCCESS on attempt {attempt}!")
                     success = True
                     first_pass = attempt
                     time_to_first = total_time
@@ -359,7 +359,7 @@ def main():
                     design_data['time_to_success'] = total_time
                     break
                 else:
-                    print("  ❌ Failed")
+                    print("   Failed")
                     
                     # Refine prompt for next attempt
                     if attempt < K and error_stage:
@@ -406,11 +406,11 @@ def main():
             print(f"     Root cause: {root_cause if root_cause else 'None'}")
 
     print(f"\n{'='*60}")
-    print("✅ results.csv generated!")
+    print(" results.csv generated!")
     print(f"{'='*60}")
 
     # Print preview of results
-    print("\n📊 Results preview:")
+    print("\n Results preview:")
     print("-"*80)
     with open("results.csv", "r") as f:
         for i, line in enumerate(f):
