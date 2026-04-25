@@ -310,5 +310,5 @@ with open("metrics_report.txt", "w") as report:
             report.write(f"    {cause}: {share:.1%} ({count} failures)\n")
 
 print(f"\n{'='*60}")
-print(f"✅ Metrics report saved to: metrics_report.txt")
+print(f" Metrics report saved to: metrics_report.txt")
 print(f"{'='*60}")
