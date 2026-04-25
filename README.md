@@ -86,13 +86,13 @@ pip3 install requests
 ## How to Use
 
 ### 1. Installation
-# Clone or create the project directory
-# Install required system tools
-# Install Python dependencies
+##### Clone or create the project directory
+##### Install required system tools
+##### Install Python dependencies
 
 ### 2. Configure the Tool
 #### Edit the following in main.py
-```python
+```
 # =====================================
 # DESIGN NAME
 # =====================================
