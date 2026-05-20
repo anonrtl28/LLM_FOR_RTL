@@ -59,10 +59,10 @@ RESULT_DIR     = f"results/{DESIGN}"
 # =====================================
 # SSH CONFIG
 # =====================================
-REMOTE_USER = "22bec0985"
-REMOTE_HOST = "cadence.vit.ac.in"
-REMOTE_DIR  = f"/home/userdata/{REMOTE_USER}/VAC2026/synthesis/{DESIGN}"
-SSH_PASS    = "student"
+REMOTE_USER = #enter user name
+REMOTE_HOST = #enter the address of your local host server having the Genus tool
+REMOTE_DIR  = #enter the path of the working directory
+SSH_PASS    = #mention your SSH key to authenticate
 
 os.makedirs("rtl", exist_ok=True)
 os.makedirs(RESULT_DIR, exist_ok=True)
